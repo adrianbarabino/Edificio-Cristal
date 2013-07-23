@@ -1,4 +1,7 @@
 Options +FollowSymLinks
+Options -Indexes
+# Con lo de arriba, sacamos los Index Of horribles...
+
 RewriteEngine on
 RewriteBase /
 
