@@ -2,7 +2,7 @@
 
 // Base de Datos
 
-$nombre_db = "base_de_datos";
+$nombre_db = "test";
 $usuario_db = "usuario";
 $clave_db = "contraseña";
 $servidor_db = "localhost";
