@@ -11,3 +11,8 @@ RewriteRule ^comodidades /index.php
 RewriteRule ^fotos /index.php
 RewriteRule ^inicio /index.php
 RewriteRule ^contacto /index.php
+
+# Todo estos URL Rewrite los hacemos para que si entramos
+# a cualquiera de esas direcciones, redireccione a 
+# index.php, entonces, despues la URL la tomo mediante
+# el History de Backbone.

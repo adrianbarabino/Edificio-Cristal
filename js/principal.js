@@ -1,4 +1,7 @@
 console.log("Edificio Cristal ACTIVADO");
+
+// Comenzamos a declarar las variables globales...
+
 var rawWidth,
 	rawHeight,
 	origAspect,
@@ -27,20 +30,14 @@ window.plugs = {};
 window.views = {};
 window.collections = {};
 
-	var playing = false;
+var playing = false;
+
 $(document).on("ready", iniciar);
+// Al cargar todo el DOM, éjecutamos la función Iniciar, que está acá abajo.
 
 function iniciar () {
-	$(document).on('alertar', function(e, grito){
-		console.log(grito);
-		console.log("HOLA");
-	});
 
-	// Mapa
-
-          
-	//  FIN MAPA
- 
+ 	// Si hacemos clic en el botón de música, reproducimos el audio, y si le damos de nuevo, le damos pausa.
     $('.musica').click(function() {
         $(this).toggleClass("down");
  
@@ -57,8 +54,11 @@ function iniciar () {
  
  
     });
-    document.getElementById('ambiente').volume = 0.5;
+    document.getElementById('ambiente').volume = 0.3;
+    // Configuramos el volumen a 0.3, para que no sea tan molesto
     document.getElementById('ambiente').loop = true;
+    // Y definimos que se repita el audio.
+
     $("#ambiente").on("ended", function(){
         $(".musica").removeClass("reproduciendo");
         playing = false;
@@ -126,12 +126,20 @@ function iniciar () {
 			$('#fecha_fin_reserva').DatePickerHide();
 		}
 	});
+
+	// Cambiamos los href por javascript:void(0)
+	// y la URL del link la guardamos en el atributo REL
 	$("nav li a").each(function(i, v){
 		var url = $(this).attr("href");
 		url = url.substring(0, url.length-1);
 		$(this).attr("href", "javascript:void(0);");
 		$(this).attr("rel", "address:"+url);
 	});
+
+	// Comenzamos a declarar las rutas de la aplicación
+	// Básicamente la función es la siguiente:
+	// Cuando entramos a tal ruta, nos muestra el div correspondiente
+	// osea, el que tiene tal ID, y los otros los oculta.
 
     EdificioCristal.Routers.BaseRouter = Backbone.Router.extend({
 		routes: {
@@ -199,6 +207,9 @@ function iniciar () {
 			pushState : true,
 			root: "/"
 	});
+
+	// De la siguiente forma, lee el atributo Rel del link
+	// y ahí saca la URL a donde "navegaría" la aplicación.
 	$("nav li a").on("click", function(){
 		var url = $(this).attr("rel");
 		console.log(url);
