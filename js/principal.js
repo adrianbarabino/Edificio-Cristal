@@ -10,6 +10,9 @@ var rawWidth,
 	targetAspect,
 	multi;
 
+// Declaramos el título que irá después del nombre de la sección actual
+var titulo_inicial = " - Edificio Cristal";
+
 var mostrar_form_reservas = false;
 var mostrar_form_info = false;
 var fecha1 = new Date();
@@ -158,6 +161,7 @@ function iniciar () {
 
 		},
 		inicio: function(){
+			$(document).attr("title", "Inicio"+titulo_inicial);
 			$("header nav ul li.activo").removeClass("activo");
 			$("header nav ul li:contains('INICIO')").addClass("activo");
 			$("#inicio").fadeIn();
@@ -167,6 +171,7 @@ function iniciar () {
 			$("#contacto").fadeOut();
 		},
 		fotos: function(){
+			$(document).attr("title", "Fotos"+titulo_inicial);
 			$("header nav ul li.activo").removeClass("activo");
 			$("header nav ul li:contains('FOTOS')").addClass("activo");
 			$(".ruta").html("/fotos");
@@ -182,6 +187,7 @@ function iniciar () {
 		    Galleria.run('#galleria');
 		},
 		comodidades: function(){
+			$(document).attr("title", "Comodidades"+titulo_inicial);
 			$("header nav ul li.activo").removeClass("activo");
 			$("header nav ul li:contains('COMODIDADES')").addClass("activo");
 			$(".ruta").html("/comodidades");
@@ -191,6 +197,7 @@ function iniciar () {
 			$("#contacto").fadeOut();
 		},
 		contacto: function(){
+			$(document).attr("title", "Contacto"+titulo_inicial);
 			$("header nav ul li.activo").removeClass("activo");
 			$("header nav ul li:contains('CONTACTO')").addClass("activo");
 			$(".ruta").html("/contacto");
